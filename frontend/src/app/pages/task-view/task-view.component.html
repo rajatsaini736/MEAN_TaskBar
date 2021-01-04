@@ -1,0 +1,51 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="sidebar">
+            <h1 class="title text-white">Lists</h1>
+            <div class="list-menu"></div>
+            <a class="list-menu-item" *ngFor = "let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+                <p class="list-text text-white">
+                    {{ list.title }}
+                </p>
+                <span class="pull-right task-delete" (click)="deleteList(list)">X</span>
+            </a>
+        </div>
+        <button class="btn btn-primary btn-rounded-corners" routerLink="/new-list">Add List</button>
+    </div>
+
+    <div class="task-list-container">
+        <h1 class="titile text-white">Tasks</h1>
+        <div class="task list-menu-item" [class.complete]="task.completed" *ngFor = "let task of tasks" (click)="onTaskComplete(task)">
+            <p class="list-text text-white">
+                {{ task.title }}
+            </p>
+            <span class="pull-right task-delete" (click)="deleteTask(task)">X</span>
+        </div>
+        <button class="btn btn-primary btn-rounded-corners add-button" (click)="onAddTask()">+</button>
+    </div>
+</div>
+
+
+
+<div class="my-div">
+    <ul class="my-link">
+        <li><img src="../../../assets/Images/camera.png" alt="camera" ></li>
+        <li><img src="../../../assets/Images/file.png" alt="file" ></li>
+        <li><img src="../../../assets/Images/mail.png" alt="mail" ></li>
+        <li><img src="../../../assets/Images/speaker.png" alt="speaker" ></li>
+    </ul>
+    <div class="my-link-2">
+        <img src="../../../assets/Images/send.png" alt="send" class="send" style="width: 30%;">
+        <img src="../../../assets/Images/close.png" alt="close" class="close" style="width: 30%;">
+    </div>
+</div>
+
+<script>
+    const socialLink = document.querySelector('.my-link-2');
+    const shareLink = document.querySelector('.my-link');
+
+    socialLink.addEventListener('click', function(){
+        socialLink.classList.toggle('active');
+        shareLink.classList.toggle('active');
+    })
+</script>

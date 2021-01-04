@@ -1,0 +1,9 @@
+<div class="d-flex flex-row justify-content-center align-items-center" style="height: 500px;">
+    <div class="card text-white bg-dark p-5 form-group shadow-lg">
+        <h1 class="title">Create a new list</h1>
+        <input #listInput type="text" class="form-control has-background-light" placeholder="Enter list title">
+
+        <button class="btn btn-primary mt-4" (click)="addList(listInput.value)">Add</button>
+        <button class="btn text-white mt-1" routerLink='/'>Cancel</button>
+    </div>
+</div>
